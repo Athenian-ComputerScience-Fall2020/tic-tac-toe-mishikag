@@ -2,15 +2,16 @@
 #  
 # A note on style: Dictionaries can be defined before or after functions.
 
-the_board = {'TL': ' ','TM': ' ','TR': ' ','ML': ' ','MM': ' ','MR': ' ','BL': ' ','BM': ' ','BR': ' '}
+the_board = {'TL':' ','TM':' ','TR':' ',
+             'ML':' ','MM':' ','MR':' ',
+             'BL':' ','BM':' ','BR':' '}
 
-def display_board(theBoard):
-    print(theBoard['TL'], '  |',theBoard['TM'], ' |', '  ',theBoard['TR'])
-    print ('-+-+-'+'-+-+-'+'-+-+-')
-    print(theBoard['ML'], '  |',theBoard['MM'], ' |', '  ',theBoard['MR'])
-    print ('-+-+-'+'-+-+-'+'-+-+-')
-    print(theBoard['BL'], '  |',theBoard['BM'], ' |', '  ',theBoard['BR'])
-    print ('-+-+-'+'-+-+-'+'-+-+-')
+def display_board(the_Board):
+    print(the_Board['TL'] + '|' + the_Board['TM'] + '|' + the_Board['TR'])
+    print('-+-+-')
+    print(the_Board['ML'] + '|' + the_Board['MM'] + '|' + the_Board['MR'])
+    print('-+-+-')
+    print(the_Board['BL'] + '|' + the_Board['BM'] + '|' + the_Board['BR'])
 
 #def intro_board(theBoard):
     #print ('|    ' '|    ' '|    ')
@@ -43,11 +44,11 @@ def CheckWinner(the_board):
     return check
 
 def game(the_board):
-    a = "X"
+    a = 'X'
     for i in range(9):
         display_board(the_board)
-        print("it is", a, "turn")
-        turns = input("enter a place in the board")
+        print("it is"+ a + "turn")
+        turns = input()
         while True:
             if the_board[turns]==' ':
                 the_board[turns] == a
@@ -63,5 +64,5 @@ def game(the_board):
             else:
                 print("there is no winner")
                 break
-game(the_board)
+#game(the_board)
 display_board(the_board)
