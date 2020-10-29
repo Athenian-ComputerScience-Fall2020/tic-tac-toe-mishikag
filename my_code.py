@@ -1,71 +1,81 @@
 # Collaborators (including web sites where you got help: (enter none if you didn't need help)
-#  
+#  none
 # A note on style: Dictionaries can be defined before or after functions.
 
-the_board = {'TL': ' ' , 'TM': ' ' , 'TR': ' ' ,
-            'ML': ' ' , 'MM': ' ' , 'MR': ' ' ,
-            'BL': ' ' , 'BM': ' ' , 'BR': ' ' }
+board = {'TL': ' ' , 'TM': ' ' , 'TR': ' ' ,'ML': ' ' , 'MM': ' ' , 'MR': ' ' ,'BL': ' ' , 'BM': ' ' , 'BR': ' ' }
 
-def real_board(the_board):
-    print(the_board['TL'] + '|' + the_board['TM'] + '|' + the_board['TR'])
+def gameboard(board):
+    print(board['TL'] + '|' + board['TM'] + '|' + board['TR'])
     print('-+-+-')
-    print(the_board['ML'] + '|' + the_board['MM'] + '|' + the_board['MR'])
+    print(board['ML'] + '|' + board['MM'] + '|' + board['MR'])
     print('-+-+-')
-    print(the_board['BL'] + '|' + the_board['BM'] + '|' + the_board['BR'])
+    print(board['BL'] + '|' + board['BM'] + '|' + board['BR'])
 
 def main():
-    a = 'X'
-    count = 0
+    player = 'X'
+    num = 0
 
     for i in range(10):
-        real_board(the_board)
-        print("It is player " + a + "'s turn." + a + ", what do you want to move?")
+        gameboard(board)
+        print("It is player " + player + "'s turn. " + player + ", what do you want to move? Use the keys: TL, TM ,TR, ML, MM, MR, BL, BM, BR, to pick a spot on the board: ")
 
         move = input()
 
-        if the_board[move] == ' ':
-            the_board[move] = a
-            count += 1
+        if board[move] == ' ':
+            board[move] = player
+            num += 1
         else:
-            print("That place is already filled. pick another move")
+            print("That spot is already filled. pick another move")
             continue
 
-        if count >= 5:
-            if the_board['TL'] == the_board['TM'] == the_board['TR'] != ' ':
-                real_board(the_board)
-                print(a + " won.")
+        if player =='X':
+            player = 'O'
+        else:
+            player = 'X'
+
+        if num >= 5:
+            if board['TL'] == board['TM'] == board['TR'] != ' ':
+                gameboard(board)
+                print(player + " won.")
                 break
 
-            elif the_board['ML'] == the_board['MM'] == the_board['MR'] != ' ':
-                real_board(the_board)
-                print(a + " won.")
+            elif board['ML'] == board['MM'] == board['MR'] != ' ':
+                gameboard(board)
+                print(player + " won.")
                 break
 
-            elif the_board['BL'] == the_board['BM'] == the_board['BR'] != ' ':
-                real_board(the_board)
-                print(a + " won.")
+            elif board['BL'] == board['BM'] == board['BR'] != ' ':
+                gameboard(board)
+                print(player + " won.")
                 break
 
-            elif the_board['TL'] == the_board['ML'] == the_board['BL'] != ' ':
-                real_board(the_board)
-                print(a + " won.")
+            elif board['TL'] == board['ML'] == board['BL'] != ' ':
+                gameboard(board)
+                print(player + " won.")
                 break
 
-            elif the_board['TM'] == the_board['MM'] == the_board['BM'] != ' ':
-                real_board(the_board)
-                print(a + " won.")
+            elif board['TM'] == board['MM'] == board['BM'] != ' ':
+                gameboard(board)
+                print(player + " won.")
                 break
 
-            elif the_board['TR'] == the_board['MR'] == the_board['BR'] != ' ':
-                real_board(the_board)
-                print(all + " won.")
+            elif board['TR'] == board['MR'] == board['BR'] != ' ':
+                gameboard(board)
+                print(player + " won.")
                 break
 
-            # finish conditions
+            elif board['TL'] == board['MM'] == board['BR'] != ' ':
+                gameboard(board)
+                print(player + " won.")
+                break
 
-        if count == 9:
-            real_board(the_board)
+            elif board['TR'] == board['MM'] == board['BL'] != ' ':
+                gameboard(board)
+                print(player + " won.")
+                break
+
+        if num == 9:
+            gameboard(board)
             print("It's a Tie!!")
             break
-
 main()

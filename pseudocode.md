@@ -1,6 +1,3 @@
-# Pseudocode for this program
-(this can be in a flowchart, using bullet points, inserting a picture, etc)
-
 * Dictionary definiton (the_board)
     * Keys: TL, TM TR, ML, MM, MR, BL, BM, BR
     * Values: are empty spaces
@@ -9,8 +6,8 @@
     * print the board
 
 * define the function "game"
-    * the variable a equals X
-    count is equal to 0
+    * the variable a equals player X because X goes first
+    * count is equal to 0
 
     * for i in the range of 10:
         * call the function real_board with parameter the_board
@@ -27,41 +24,22 @@
             * print that the spot is filled
             * continue the code
 
+        # this is to switch user X and player O
+        * if player is equal to X
+            * make player equal to O to switch user
+        * else
+            * player is equal to user X
+
         # this is to check the winning conditions
-        * it checks it every time after 5 moves (need at least 5 moves to win)
+        ## least amount of moves you can use to win is 5, so it will start checking these conditions after 5 moves have passed
         * if count is greater than or equal to 5:
             * if a three in a row or diagonal are equal to each other in the board
-                * print who won
+                * print the board
+                * print who won the game
                 * break out of code
-                    * whoever played the last move is who won
             * code checks for every possible winning solution
 
         # if the board is full
         * if count is equal to 9
             * print that it is a tie
-
-
-
-
-
-
-Below are templates for flowcharts and mardown. feel free to edit them - or delete them and do something else if you prefer.
-
-# Markdown
-
-
-## Markdown
-This is a brief guide to Markdown. Click the edit button to see what to type and use the "Preview changes" tab to check your work as you go.
-
-# Heading1
-## Heading 2
-### Heading 3
-
-* Point 1
-  * Point 2 (tabbed over)
-    * Point 3 (tabbed over from line above)
-
-*italics*
-**bold**
-
-
+* call the function main
