@@ -28,11 +28,6 @@ def main():
             print("That spot is already filled. pick another move")
             continue
 
-        if player =='X':
-            player = 'O'
-        else:
-            player = 'X'
-
         if num >= 5:
             if board['TL'] == board['TM'] == board['TR'] != ' ':
                 gameboard(board)
@@ -73,6 +68,11 @@ def main():
                 gameboard(board)
                 print(player + " won.")
                 break
+
+        if player =='X':
+            player = 'O'
+        else:
+            player = 'X'
 
         if num == 9:
             gameboard(board)
