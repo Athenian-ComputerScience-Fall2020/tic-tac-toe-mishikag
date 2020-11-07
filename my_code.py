@@ -2,14 +2,14 @@
 #  none
 # A note on style: Dictionaries can be defined before or after functions.
 
-board = {'TL': ' ' , 'TM': ' ' , 'TR': ' ' ,'ML': ' ' , 'MM': ' ' , 'MR': ' ' ,'BL': ' ' , 'BM': ' ' , 'BR': ' ' }
+board = {'1': ' ' , '2': ' ' , '3': ' ' ,'4': ' ' , '5': ' ' , '6': ' ' ,'7': ' ' , '8': ' ' , '9': ' ' }
 
 def gameboard(board):
-    print(board['TL'] + '|' + board['TM'] + '|' + board['TR'])
+    print(board['1'] + '|' + board['2'] + '|' + board['3'])
     print('-+-+-')
-    print(board['ML'] + '|' + board['MM'] + '|' + board['MR'])
+    print(board['4'] + '|' + board['5'] + '|' + board['6'])
     print('-+-+-')
-    print(board['BL'] + '|' + board['BM'] + '|' + board['BR'])
+    print(board['7'] + '|' + board['8'] + '|' + board['9'])
 
 def main():
     player = 'X'
@@ -17,7 +17,7 @@ def main():
 
     for i in range(10):
         gameboard(board)
-        print("It is player " + player + "'s turn. " + player + ", what do you want to move? Use the keys: TL, TM ,TR, ML, MM, MR, BL, BM, BR, to pick a spot on the board: ")
+        print("It is player " + player + "'s turn. " + player + ", what do you want to move? Use the keys: 1, 2, 3, 4, 5, 6, 7, 8, 9 to pick a spot on the board: ")
 
         move = input()
 
@@ -29,42 +29,42 @@ def main():
             continue
 
         if num >= 5:
-            if board['TL'] == board['TM'] == board['TR'] != ' ':
+            if board['1'] == board['2'] == board['3'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
 
-            elif board['ML'] == board['MM'] == board['MR'] != ' ':
+            elif board['4'] == board['5'] == board['6'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
 
-            elif board['BL'] == board['BM'] == board['BR'] != ' ':
+            elif board['7'] == board['8'] == board['9'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
 
-            elif board['TL'] == board['ML'] == board['BL'] != ' ':
+            elif board['1'] == board['4'] == board['7'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
 
-            elif board['TM'] == board['MM'] == board['BM'] != ' ':
+            elif board['2'] == board['5'] == board['8'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
 
-            elif board['TR'] == board['MR'] == board['BR'] != ' ':
+            elif board['3'] == board['6'] == board['9'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
 
-            elif board['TL'] == board['MM'] == board['BR'] != ' ':
+            elif board['1'] == board['5'] == board['9'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
 
-            elif board['TR'] == board['MM'] == board['BL'] != ' ':
+            elif board['3'] == board['5'] == board['7'] != ' ':
                 gameboard(board)
                 print(player + " won.")
                 break
@@ -78,4 +78,8 @@ def main():
             gameboard(board)
             print("It's a Tie!!")
             break
-main()
+try:
+    main()
+except:
+    print("bad input")
+    main()
