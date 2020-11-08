@@ -3,7 +3,6 @@
 # A note on style: Dictionaries can be defined before or after functions.
 
 board = {'1': ' ' , '2': ' ' , '3': ' ' ,'4': ' ' , '5': ' ' , '6': ' ' ,'7': ' ' , '8': ' ' , '9': ' ' }
-
 def gameboard(board):
     print(board['1'] + '|' + board['2'] + '|' + board['3'])
     print('-+-+-')
@@ -12,9 +11,9 @@ def gameboard(board):
     print(board['7'] + '|' + board['8'] + '|' + board['9'])
 
 def main():
-    player = 'X'
     num = 0
-
+    global player
+    player = 'X'
     for i in range(10):
         gameboard(board)
         print("It is player " + player + "'s turn. " + player + ", what do you want to move? Use the keys: 1, 2, 3, 4, 5, 6, 7, 8, 9 to pick a spot on the board: ")
@@ -28,7 +27,7 @@ def main():
             print("That spot is already filled. pick another move")
             continue
 
-        if num >= 5:
+        if num >= 1:
             if board['1'] == board['2'] == board['3'] != ' ':
                 gameboard(board)
                 print(player + " won.")
@@ -82,4 +81,8 @@ try:
     main()
 except:
     print("bad input")
+    if player == 'X':
+        player = 'X'
+    else:
+        player = 'O'
     main()
